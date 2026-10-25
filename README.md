@@ -1,24 +1,24 @@
-# IT Olympics Quiz Bee Simulator
+# Quiz Hive
 
-A no-build, single-page quiz bee app with 1,784 IT questions across 12 topics. Friendly flat design, custom vector icons, sounds, confetti, live multiplayer, and a practice area.
+A no-build, single-page quiz game for any subject. Friendly flat design, custom vector icons and avatars, sounds, confetti, live multiplayer, practice modes, and decks you can upload yourself.
+
+## Decks
+- The built-in **IT Olympics** deck (1,784 questions, 12 topics) is included on every device.
+- **Decks** (home screen) lets each user upload their own files: `.xlsx`, `.xls`, `.csv`, `.json`, `.txt`, `.md`. They are converted into a deck, saved in that browser, and can be downloaded back as an `.xlsx` workbook. Choose a deck and every mode uses it.
+- Excel/CSV: columns **Question** and **Answer** (optional **Topic**, **Difficulty**, **Type**). Text files: `question | answer`, `Q:`/`A:` pairs, or `Term: definition` lines; `# Heading` sets the topic.
 
 ## Modes
-- **Host a live game**: your screen shows the question; players join on their phones with a 4-character room code. Choose **multiple choice** (4 related choices), **fill in the blank** (typed and auto-checked, with blank boxes as a hint), or **mixed**. Faster correct answers earn more points; "close" typed answers earn half.
-- **Join a game**: enter the code and a nickname.
-- **Practice**: Quiz round, Survival (3 hearts), Speed sprint (60 s), Weak spots (replays what you missed), and Flashcards. Answer by typing (auto-checked) or multiple choice, use hints, and track mastery per topic.
+- **Host a live game**: your screen shows the question; players join on their phones with a 4-character code, pick an avatar, and see the question on their own screens. Multiple choice (4 related choices), fill in the blank (typed, auto-checked), or mixed. A leaderboard with rising and dropping animation appears between questions.
+- **Join a game**: enter the code, a nickname, and choose an avatar.
+- **Practice**: Quiz round, Survival, Speed sprint, Weak spots, Flashcards, with hints and progress tracking.
 - **Team round**: teams on one screen, host awards points.
-- **Admin panel**: upload an `.xlsx` workbook (any sheet with *Question* and *Answer* headers; optional *Topic*, *Difficulty*, *Type*).
 
 ## Host it free on GitHub Pages
-1. Create a public GitHub repository and upload everything in this folder to the repository root (`index.html`, `vendor/`, `.nojekyll`, `questions.json`, `README.md`, `reviewer/`).
+1. Create a public GitHub repository and upload everything in this folder to the repository root (`index.html`, `vendor/`, `.nojekyll`, `README.md`, `reviewer/`).
 2. Go to **Settings > Pages**, choose **Deploy from a branch**, select `main` and `/ (root)`, then Save.
 3. After a minute or two the site is live at `https://<your-username>.github.io/<repo-name>/`.
 
-## Changing the questions
-- Quick: Admin panel, upload your workbook, **Use in this browser** (enough for hosting).
-- For everyone: Admin panel, **Download questions.json**, replace `questions.json` in the repository.
-
 ## Notes and limits
 - No game server: the host's browser runs the game and players connect peer-to-peer (WebRTC) through the free public PeerJS signaling service. The host must keep the tab open. Strict school or office firewalls can block peer-to-peer, so test on your real network.
-- Practice progress, history, and uploaded banks are stored in each browser (localStorage).
-- Multiple-choice wrong answers are generated from related answers in the bank (same topic and type, similar wording). Computation questions get nearby numbers.
+- Uploaded decks, practice progress and history are stored in each user's own browser (localStorage). Clearing browser data removes them, so download decks you want to keep.
+- Text files cannot be turned into questions automatically unless they follow the formats above; the app does not write questions from free-form prose.
